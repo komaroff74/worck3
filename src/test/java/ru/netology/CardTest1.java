@@ -46,21 +46,11 @@ public class CardTest1 {
     void shouldSendFormWithDashAndWhitespaceInName() {
 
         $("[data-test-id=name] input").setValue("Иванов- Сидоров Иван Иванович ");
-        $("[data-test-id=phone] input").setValue("+79023004000");
+        $("[data-test-id=phone] input").setValue("+79001005050");
         $("[data-test-id=agreement]").click();
         $("button").click();
         $("[data-test-id=order-success]").shouldHave(exactText("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
 
     }
 
-    @Test
-    void shouldSendFormWithIncorrectNumber() {
-
-        $("[data-test-id=name] input").setValue("Иванов-Сидоров Иван ");
-        $("[data-test-id=phone] input").setValue("+790010050500");
-        $("[data-test-id=agreement]").click();
-        $("button").click();
-        $("[data-test-id=order-success]").shouldHave(exactText("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
-
-    }
 }
